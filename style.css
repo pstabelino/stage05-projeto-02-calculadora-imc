@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-color-modal: rgba(0, 0, 0, 0.7);
+  --bg-color: #040924;
+  --bg-white: #ffffff;
+  --bg-button: #02799d;
+  --bg-button-hover: #01475c;
+  --bg-input: #dce2e9;
+  --bg-error: #f03e3e;
+
+  --bc-input: rgba(73, 80, 87, 0.3);
+  --bc-outline: #02799d;
+
+  --fc-button: #ffffff;
+  --fc-error: #ffffff;
+  --fc-heading: #0c3440;
+  --fc-texting: #00453a;
+  --fc-input: #212529;
+  --fc-placeholder: rgba(73, 80, 87, 0.5);
+}
+
+body,
+input,
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6em;
+}
+
+.container {
+  background: var(--bg-color);
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  background: var(--bg-white);
+  padding: 4.8rem 6.4rem 6.4rem;
+  border-radius: 0.6rem;
+}
+
+h1 {
+  color: var(--fc-heading);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 4rem;
+  margin-bottom: 3.2rem;
+}
+
+form div:nth-child(1) {
+  margin-bottom: 1.6rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+}
+
+.input-wrapper label {
+  color: var(--fc-texting);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.input-wrapper input {
+  padding: 1.6rem;
+  background: var(--bg-input);
+  color: var(--fc-input);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2rem;
+  border: 1px solid var(--bc-input);
+  border-radius: 0.4rem;
+  outline-color: var(--bc-outline);
+}
+
+.input-wrapper input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-wrapper input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--fc-placeholder);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  background: var(--bg-button);
+  color: var(--fc-button);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: var(--bg-button-hover);
+}
+
+/* Modal */
+
+.modal-wrapper.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color-modal);
+  display: grid;
+  place-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-wrapper .card {
+  position: relative;
+}
+
+.modal-wrapper .card button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+}
+
+/* Modal Alert */
+.modal-alert.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-error);
+  text-align: center;
+  padding: 0.8rem 0 0.8rem 0;
+  color: var(--fc-error);
+  font-weight: 700;
+  font-size: 1.6rem;
+
+  transform: translateY(-35px);
+  transition: transform 0.5s;
+}
